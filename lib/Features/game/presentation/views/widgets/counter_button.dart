@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wolves/cubits/counter_cubite/counter_cubite.dart';
-import 'package:wolves/cubits/counter_cubite/roles_counter.dart';
-import 'package:wolves/models/team_roles.dart';
+import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/counter_cubite.dart';
+import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/roles_counter.dart';
+import 'package:wolves/Features/home/data/models/team_roles.dart';
 
-class CounterButton extends StatefulWidget {
+class CounterButton extends StatelessWidget {
   const CounterButton({
     super.key,
     required this.numPlayers,
-    required this.Croles,
+    required this.croles,
   });
-  final TeamRolesModele Croles;
+  final TeamRolesModele croles;
   final int numPlayers;
 
-  @override
-  State<CounterButton> createState() => _CounterButtonState();
-}
-
-class _CounterButtonState extends State<CounterButton> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -33,14 +28,12 @@ class _CounterButtonState extends State<CounterButton> {
                   heroTag: null,
                   child: const Icon(Icons.remove),
                   onPressed: () {
-                    if ((widget.Croles.roleName == 'wolf' ||
-                            widget.Croles.roleName == 'villager') &&
+                    if ((croles.roleName == 'wolf' ||
+                            croles.roleName == 'villager') &&
                         (state < 2)) {
                     } else {
                       context.read<CounterCubit>().decrement();
-                      context
-                          .read<RolesCounterCubit>()
-                          .removeRole(widget.Croles);
+                      context.read<RolesCounterCubit>().removeRole(croles);
                     }
                   }),
             ),
@@ -56,14 +49,13 @@ class _CounterButtonState extends State<CounterButton> {
                   child: const Icon(Icons.add),
                   onPressed: () {
                     final totalroles = context.read<RolesCounterCubit>().state;
-                    if (widget.Croles.roleName == 'wolf' &&
-                        totalroles < widget.numPlayers) {
+                    if (croles.roleName == 'wolf' && totalroles < numPlayers) {
                       context.read<RolesCounterCubit>().isWolf = true;
                     }
 
-                    if (totalroles < widget.numPlayers) {
+                    if (totalroles < numPlayers) {
                       context.read<CounterCubit>().increment();
-                      context.read<RolesCounterCubit>().addRole(widget.Croles);
+                      context.read<RolesCounterCubit>().addRole(croles);
                     }
                   }),
             ),

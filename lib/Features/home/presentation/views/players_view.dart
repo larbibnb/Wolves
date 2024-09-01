@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wolves/cubits/counter_cubite/roles_counter.dart';
-import 'package:wolves/models/player_modele.dart';
-import 'package:wolves/widgets/player_list_tile_builder.dart';
+import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/roles_counter.dart';
+import 'package:wolves/Features/home/data/models/player_modele.dart';
+import 'package:wolves/Features/game/presentation/views/widgets/player_list_tile_builder.dart';
 
 class PlayersView extends StatefulWidget {
   const PlayersView({super.key});

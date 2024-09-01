@@ -1,11 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wolves/cubits/counter_cubite/shuffle_roles_cubite.dart';
-import 'package:wolves/cubits/counter_cubite/shuffle_states.dart';
-import 'package:wolves/models/player_modele.dart';
-import 'package:wolves/models/team_roles.dart';
-import 'package:wolves/widgets/role_card.dart';
+import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/shuffle_roles_cubite.dart';
+import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/shuffle_states.dart';
+import 'package:wolves/Features/home/data/models/player_modele.dart';
+import 'package:wolves/Features/home/data/models/team_roles.dart';
+import 'package:wolves/Features/game/presentation/views/widgets/role_card.dart';
 
 class GameView extends StatefulWidget {
   const GameView({super.key});

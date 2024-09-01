@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wolves/models/team_roles.dart';
-import 'package:wolves/widgets/counter_button.dart';
+import 'package:wolves/Features/home/data/models/team_roles.dart';
+import 'package:wolves/Features/game/presentation/views/widgets/counter_button.dart';
 
 class RoleTile extends StatelessWidget {
   const RoleTile({
@@ -35,7 +35,7 @@ class RoleTile extends StatelessWidget {
         ),
         CounterButton(
           numPlayers: numPlayers,
-          Croles: roles,
+          croles: roles,
         ),
         const SizedBox(width: 12),
       ],

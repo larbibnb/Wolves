@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wolves/models/team_roles.dart';
-import 'package:wolves/widgets/role_tile.dart';
+import 'package:wolves/Features/home/data/models/team_roles.dart';
+import 'package:wolves/Features/game/presentation/views/widgets/role_tile.dart';
 
 class RolesListBuillder extends StatelessWidget {
   RolesListBuillder({super.key, required this.numPlayers});

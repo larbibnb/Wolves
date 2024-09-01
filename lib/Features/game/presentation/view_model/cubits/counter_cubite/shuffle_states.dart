@@ -1,4 +1,4 @@
-import 'package:wolves/models/team_roles.dart';
+import 'package:wolves/Features/home/data/models/team_roles.dart';
 
 class InitialState {}
 

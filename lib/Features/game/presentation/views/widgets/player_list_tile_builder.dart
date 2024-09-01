@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wolves/models/player_modele.dart';
+import 'package:wolves/Features/home/data/models/player_modele.dart';
 
 class PlayerListTileBuilder extends StatelessWidget {
   const PlayerListTileBuilder(

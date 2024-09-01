@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wolves/cubits/counter_cubite/roles_counter.dart';
-import 'package:wolves/cubits/counter_cubite/shuffle_roles_cubite.dart';
-import 'package:wolves/models/player_modele.dart';
-import 'package:wolves/widgets/roles_list_builder.dart';
+import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/roles_counter.dart';
+import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/shuffle_roles_cubite.dart';
+import 'package:wolves/Features/home/data/models/player_modele.dart';
+import 'package:wolves/Features/game/presentation/views/widgets/roles_list_builder.dart';
 
 class RolesView extends StatelessWidget {
   const RolesView({super.key});
