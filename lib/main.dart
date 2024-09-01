@@ -8,6 +8,7 @@ import 'package:wolves/Features/game/presentation/views/game_view.dart';
 import 'package:wolves/Features/home/presentation/views/players_view.dart';
 import 'package:wolves/Features/game/presentation/views/roles_view.dart';
 import 'package:wolves/Features/decisionMade/presentation/views/waiting_room_view.dart';
+import 'package:wolves/constants.dart';
 
 void main() {
   runApp(const Wolves());
@@ -32,6 +33,9 @@ class Wolves extends StatelessWidget {
         )
       ],
       child: MaterialApp(
+        theme: ThemeData.light().copyWith(
+          scaffoldBackgroundColor: kPrimaryColor,
+        ),
         title: 'wolves',
         debugShowCheckedModeBanner: false,
         routes: {
