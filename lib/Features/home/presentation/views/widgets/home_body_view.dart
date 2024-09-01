@@ -28,7 +28,7 @@ class HomeBodyView extends StatelessWidget {
                 CustomButton(
                   buttonTitle: 'List of Players',
                   onPressed: () {
-                    Navigator.pushNamed(context, '/players');
+                    Navigator.pushNamed(context, '/PlayerDepot');
                   },
                 ),
                 CustomButton(

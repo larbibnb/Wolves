@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/roles_counter.dart';
 import 'package:wolves/Features/home/data/models/player_modele.dart';
 import 'package:wolves/Features/game/presentation/views/widgets/player_list_tile_builder.dart';
 
-class PlayersView extends StatefulWidget {
-  const PlayersView({super.key});
+class PlayersDepotView extends StatefulWidget {
+  const PlayersDepotView({super.key});
 
   @override
-  State<PlayersView> createState() => _PlayersViewState();
+  State<PlayersDepotView> createState() => _PlayersDepotViewState();
 }
 
-class _PlayersViewState extends State<PlayersView> {
+class _PlayersDepotViewState extends State<PlayersDepotView> {
   List<PlayerModele> players = [];
   final _controller = TextEditingController();
   final _focusNode = FocusNode();
@@ -31,16 +29,10 @@ class _PlayersViewState extends State<PlayersView> {
   }
 
   @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Players'),
+        title: const Text('Players Depot'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -53,23 +45,6 @@ class _PlayersViewState extends State<PlayersView> {
             ),
             const SizedBox(
               height: 10,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.read<RolesCounterCubit>().zeroRole();
-                if (players.length > 3) {
-                  Navigator.pushNamed(context, '/roles', arguments: players);
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: players.length > 3 ? Colors.red : Colors.grey,
-                disabledIconColor: Colors.grey,
-                fixedSize: const Size(200, 50),
-                textStyle: const TextStyle(
-                  color: Colors.black,
-                ),
-              ),
-              child: const Icon(Icons.arrow_forward_sharp),
             ),
           ],
         ),
@@ -107,19 +82,3 @@ class _PlayersViewState extends State<PlayersView> {
     );
   }
 }
-
-/*class ListOfPlayers extends StatelessWidget {
-  const ListOfPlayers({
-    super.key,
-    required this.players,
-  });
-
-  final List<PlayerModele> players;
-
-  @override
-  Widget build(BuildContext context) {
-    return 
-          }),
-    );
-  }
-}*/

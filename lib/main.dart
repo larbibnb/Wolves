@@ -5,6 +5,7 @@ import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubi
 import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/shuffle_roles_cubite.dart';
 import 'package:wolves/Features/home/presentation/views/my_home_view.dart';
 import 'package:wolves/Features/game/presentation/views/game_view.dart';
+import 'package:wolves/Features/home/presentation/views/player_depot_view.dart';
 import 'package:wolves/Features/home/presentation/views/players_view.dart';
 import 'package:wolves/Features/game/presentation/views/roles_view.dart';
 import 'package:wolves/Features/decisionMade/presentation/views/waiting_room_view.dart';
@@ -44,6 +45,7 @@ class Wolves extends StatelessWidget {
           '/roles': (context) => const RolesView(),
           '/game': (context) => const GameView(),
           '/waiting': (context) => const WaitingRoomView(),
+          '/PlayerDepot':(context) => const PlayersDepotView(),
         },
         home: const MyHomeView(),
       ),
