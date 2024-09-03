@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/counter_cubite.dart';
 import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/roles_counter.dart';
 import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/shuffle_roles_cubite.dart';
@@ -10,8 +11,11 @@ import 'package:wolves/Features/home/presentation/views/players_view.dart';
 import 'package:wolves/Features/game/presentation/views/roles_view.dart';
 import 'package:wolves/Features/decisionMade/presentation/views/waiting_room_view.dart';
 import 'package:wolves/constants.dart';
+import 'package:wolves/core/utils/app_routes.dart';
 
-void main() {
+void main() async{
+  Hive.initFlutter();
+  await Hive.openBox(kPlayersBox);
   runApp(const Wolves());
 }
 
@@ -33,21 +37,13 @@ class Wolves extends StatelessWidget {
           create: (context) => RolesCounterCubit(),
         )
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        title: 'wolves',
         theme: ThemeData.light().copyWith(
           scaffoldBackgroundColor: kPrimaryColor,
         ),
-        title: 'wolves',
-        debugShowCheckedModeBanner: false,
-        routes: {
-          '/home': (context) => const MyHomeView(),
-          '/players': (context) => const PlayersView(),
-          '/roles': (context) => const RolesView(),
-          '/game': (context) => const GameView(),
-          '/waiting': (context) => const WaitingRoomView(),
-          '/PlayerDepot':(context) => const PlayersDepotView(),
-        },
-        home: const MyHomeView(),
+        routerConfig: router,
       ),
     );
   }
