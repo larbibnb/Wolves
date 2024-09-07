@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/counter_cubite.dart';
 import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/roles_counter.dart';
-import 'package:wolves/Features/home/data/models/team_roles.dart';
+import 'package:wolves/core/shared/models/team_roles.dart';
 
 class CounterButton extends StatelessWidget {
   const CounterButton({

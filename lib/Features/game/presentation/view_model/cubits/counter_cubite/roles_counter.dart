@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wolves/Features/home/data/models/team_roles.dart';
+import 'package:wolves/core/shared/models/team_roles.dart';
 
 class RolesCounterCubit extends Cubit<int> {
   RolesCounterCubit() : super(0);

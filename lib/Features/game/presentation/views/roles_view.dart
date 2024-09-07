@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/roles_counter.dart';
-import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/shuffle_roles_cubite.dart';
-import 'package:wolves/Features/home/data/models/player_modele.dart';
+import 'package:wolves/Features/game/presentation/view_model/cubits/shuffled_roles/shuffle_roles_cubite.dart';
 import 'package:wolves/Features/game/presentation/views/widgets/roles_list_builder.dart';
+import 'package:wolves/Features/home/data/models/player_modele.dart';
 
 class RolesView extends StatelessWidget {
-  const RolesView({super.key});
-
+  const RolesView({super.key, required this.playersList});
+final List<PlayerModele> playersList;
   @override
   Widget build(BuildContext context) {
-    final playersList =
-        ModalRoute.of(context)!.settings.arguments as List<PlayerModele>;
-    return Builder(builder: (context) {
+
+        
+      return Builder(builder: (context) {
       return Scaffold(
         appBar: AppBar(
           title: const Text('Roles'),
@@ -32,7 +33,7 @@ class RolesView extends StatelessWidget {
                       .read<ShuffleRolesCubite>()
                       .shuffleRoles(selectedRoles);
 
-                  Navigator.pushNamed(context, '/game', arguments: {
+                  GoRouter.of(context).goNamed ('game' ,extra: {
                     'shuffledRoles': shuffledRoles,
                     'playersList': playersList
                   });

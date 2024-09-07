@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/roles_counter.dart';
 import 'package:wolves/Features/home/data/models/player_modele.dart';
 import 'package:wolves/Features/game/presentation/views/widgets/player_list_tile_builder.dart';
 
 class PlayersView extends StatefulWidget {
-  const PlayersView({super.key});
+  const PlayersView( {super.key});
 
   @override
   State<PlayersView> createState() => _PlayersViewState();
@@ -58,7 +59,7 @@ class _PlayersViewState extends State<PlayersView> {
               onPressed: () {
                 context.read<RolesCounterCubit>().zeroRole();
                 if (players.length > 3) {
-                  Navigator.pushNamed(context, '/roles', arguments: players);
+                  GoRouter.of(context).push('/roles', extra: players);
                 }
               },
               style: ElevatedButton.styleFrom(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wolves/Features/home/presentation/views/widgets/custom_button.dart';
 import 'package:wolves/constants.dart';
 
@@ -28,13 +29,13 @@ class HomeBodyView extends StatelessWidget {
                 CustomButton(
                   buttonTitle: 'List of Players',
                   onPressed: () {
-                    Navigator.pushNamed(context, '/PlayerDepot');
+                    GoRouter.of(context).push('/playersDepot');
                   },
                 ),
                 CustomButton(
                   buttonTitle: 'Customized Roles',
                   onPressed: () {
-                    Navigator.pushNamed(context, '/players');
+                    GoRouter.of(context).push('/customized');
                   },
                 ),
                 const Spacer(
@@ -46,7 +47,7 @@ class HomeBodyView extends StatelessWidget {
                 CustomButton(
                   buttonTitle: 'Get Started',
                   onPressed: () {
-                    Navigator.pushNamed(context, '/players');
+                    GoRouter.of(context).push('/players');
                   },
                 ),
               ],

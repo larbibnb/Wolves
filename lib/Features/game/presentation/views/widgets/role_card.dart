@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wolves/Features/home/data/models/team_roles.dart';
+import 'package:wolves/core/shared/models/team_roles.dart';
 
 class RoleCard extends StatelessWidget {
   const RoleCard({super.key, required this.role});

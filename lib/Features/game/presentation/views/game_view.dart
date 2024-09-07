@@ -1,15 +1,18 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/shuffle_roles_cubite.dart';
-import 'package:wolves/Features/game/presentation/view_model/cubits/counter_cubite/shuffle_states.dart';
+import 'package:go_router/go_router.dart';
+import 'package:wolves/Features/game/presentation/view_model/cubits/shuffled_roles/shuffle_roles_cubite.dart';
+import 'package:wolves/Features/game/presentation/view_model/cubits/shuffled_roles/shuffle_states.dart';
 import 'package:wolves/Features/home/data/models/player_modele.dart';
-import 'package:wolves/Features/home/data/models/team_roles.dart';
+import 'package:wolves/core/shared/models/team_roles.dart';
 import 'package:wolves/Features/game/presentation/views/widgets/role_card.dart';
 
 class GameView extends StatefulWidget {
-  const GameView({super.key});
-
+  const GameView(
+      {super.key, required this.shuffledRoles, required this.playersList});
+  final List<TeamRolesModele> shuffledRoles;
+  final List<PlayerModele> playersList;
   @override
   State<GameView> createState() => _GameViewState();
 }
@@ -41,10 +44,6 @@ class _GameViewState extends State<GameView> {
   Widget build(BuildContext context) {
     return BlocBuilder<ShuffleRolesCubite, InitialState>(
       builder: (context, state) {
-        final args = ModalRoute.of(context)!.settings.arguments as Map;
-        final shuffledRolesList =
-            args['shuffledRoles'] as List<TeamRolesModele>;
-        final playersList = args['playersList'] as List<PlayerModele>;
         return Scaffold(
           appBar: AppBar(
             title: const Text('play'),
@@ -58,7 +57,7 @@ class _GameViewState extends State<GameView> {
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Text(
-                      playersList[_currentContentIndex].name,
+                      widget.playersList[_currentContentIndex].name,
                       style: const TextStyle(
                           fontSize: 24, fontWeight: FontWeight.bold),
                     ),
@@ -68,7 +67,7 @@ class _GameViewState extends State<GameView> {
                   ),
                   Stack(children: [
                     RoleCard(
-                      role: shuffledRolesList[_currentContentIndex],
+                      role: widget.shuffledRoles[_currentContentIndex],
                     ),
                     ClipRect(
                       child: BackdropFilter(
@@ -96,11 +95,11 @@ class _GameViewState extends State<GameView> {
                           _pressCount = 0;
                           _toggleBlur();
                           if (_currentContentIndex <
-                              shuffledRolesList.length - 1) {
+                              widget.shuffledRoles.length - 1) {
                             _nextContent();
                           } else if (_currentContentIndex ==
-                              shuffledRolesList.length - 1) {
-                            Navigator.pushNamed(context, '/waiting');
+                              widget.shuffledRoles.length - 1) {
+                            GoRouter.of(context).push('/waiting');
                           }
                         }
                       },
