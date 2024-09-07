@@ -1,6 +1,23 @@
 part of 'game_cubit.dart';
 
 
-abstract class GameState {}
+class GameState {
+   final int pressCount;
+  final int currentContentIndex;
+  final bool isBlurred;
 
-final class GameInitial extends GameState {}
+  const GameState({this.pressCount = 0, this.currentContentIndex = 0, this.isBlurred = false});
+
+  GameState copyWith({
+    int? pressCount,
+    int? currentContentIndex,
+    bool? isBlurred,
+  }) {
+    return GameState(
+      pressCount: pressCount ?? this.pressCount,
+      currentContentIndex: currentContentIndex ?? this.currentContentIndex,
+      isBlurred: isBlurred ?? this.isBlurred,
+    );
+  }
+}
+
